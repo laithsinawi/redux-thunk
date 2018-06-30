@@ -3,27 +3,10 @@ import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
 
 class ItemList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            items: [],
-            hasErrored: false,
-            isLoading: false
-        }
-    }
 
     componentDidMount() {
         this.props.fetchData('http://5b356e716005b00014c5dc00.mockapi.io/items');
     }
-
-    renderItems() {
-        return(
-            <div>
-                {console.log('typeof', typeof(this.props.items))}
-            </div>
-        );
-    };
 
     render() {
         if (this.props.hasErrored) {
@@ -35,7 +18,9 @@ class ItemList extends Component {
 
         return (
             <ul>
-                {this.renderItems()}
+                {/* {this.props.items.map(() => {
+                    <h1>hi</h1>
+                })} */}
             </ul>
         )
     }

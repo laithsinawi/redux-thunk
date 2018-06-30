@@ -24,9 +24,14 @@ export const itemsFetchData = url => {
 
         axios.get('http://5b356e716005b00014c5dc00.mockapi.io/items')
             .then(res => {
-                const items = res;
+                const items = res.data;
+                // console.log(typeof (res.data), res.data );
                 dispatch(itemsIsLoading(false));
                 dispatch(itemsFetchDataSuccess(items));
-            });
+            })
+            .catch( () => {
+                console.log('itemFetchData error')
+            })
+            
     }
 }
