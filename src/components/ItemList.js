@@ -15,12 +15,13 @@ class ItemList extends Component {
         if (this.props.isLoading) {
             return <p>Loading...</p>;
         }
+        // console.log(Array.from(this.props.items));
 
-        return (
+        return (            
             <ul>
-                {/* {this.props.items.map(() => {
-                    <h1>hi</h1>
-                })} */}
+                { Array.from(this.props.items).map( item => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
             </ul>
         )
     }
